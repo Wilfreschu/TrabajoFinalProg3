@@ -31,6 +31,9 @@ class PeliHome extends Component {
         <p>{this.props.Nombre}</p>
         <button onClick={()=> this.cambioBoton()}>{this.state.textoBoton}</button>
         {this.state.verMas==false ? null : <p>Descripcion {this.props.Descripcion}</p>}
+        <Link to={`/detalle/${this.props.id}`}>
+          <button>Ir a detalle</button>
+        </Link>
       </div>
     )
   }

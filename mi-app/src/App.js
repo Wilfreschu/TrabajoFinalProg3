@@ -2,13 +2,17 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import Home from "./Screens/Home/Home"
+import Detalle from './Screens/Home/Detalle/Detalle';
 function App() {
   return (
-   <Switch>
+    <Router>
+      <Switch>
       <Route exact path='/' component={Home} />
-   </Switch>
+      <Route path="/detalle/:id" component={Detalle} />
+      </Switch>
+    </Router>
+   
   );
 }
 
