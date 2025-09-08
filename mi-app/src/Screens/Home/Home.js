@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import PelisHome from "../../Components/PelisHome/PelisHome";
+import PelisPopulares from "../../Components/PelisPopulares/PelisPopulares";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
      <Header/>
 <section>
   <PelisHome/>
+  <PelisPopulares/>
 </section>
       <Footer/>
     </div>

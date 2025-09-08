@@ -6,3 +6,10 @@
   margin: 20px auto;
   max-width: 1000px;
 }
+
+.titulo-grupo {
+  color: #0018b4;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0;
+}

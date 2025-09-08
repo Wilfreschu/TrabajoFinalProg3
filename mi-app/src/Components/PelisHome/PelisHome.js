@@ -23,20 +23,24 @@ class PelisHome extends Component {
 
 render(){
   return (
-    <section className="card-container">
-      {this.state.datos.length === 0 ?
-        <h3>Cargando...</h3> :
-        this.state.datos.map((item,idx)=> (
-          idx < 4 ?   
-            <PeliHome 
-              key={item.id + idx} 
-              Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`} 
-              Nombre={item.original_title} 
-              Descripcion={item.overview} 
-              id={item.id}/> 
-          : null
-        ))
-      }
+    <section>
+      <h2 className="titulo-grupo">Películas en cartel</h2>
+      <div className="card-container">
+        {this.state.datos.length === 0 ? (
+          <h3>Cargando...</h3>
+        ) : (
+          this.state.datos.map((item, idx) => (
+            idx < 4 ?   
+              <PeliHome 
+                key={item.id + idx} 
+                Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`} 
+                Nombre={item.original_title} 
+                Descripcion={item.overview} 
+                id={item.id}/> 
+            : null
+          ))
+        )}
+      </div>
     </section>
   );
 }
