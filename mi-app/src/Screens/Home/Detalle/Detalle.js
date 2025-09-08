@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Detalle.css"
 
 class Detalle extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Detalle extends Component {
 
   render() {
     return (
-      <div>
+      <div className="detalle-container">
         {this.state.info === null ? (
           <h3>Cargando detalle...</h3>
         ) : (

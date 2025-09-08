@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./PeliHome.css"
 
 class PeliHome extends Component {  
   constructor (props){
@@ -26,7 +27,7 @@ class PeliHome extends Component {
 
   render(){
     return(
-      <div>
+      <div className="peli-card">
         <img src={this.props.Imagen} alt="" />
         <p>{this.props.Nombre}</p>
         <button onClick={()=> this.cambioBoton()}>{this.state.textoBoton}</button>

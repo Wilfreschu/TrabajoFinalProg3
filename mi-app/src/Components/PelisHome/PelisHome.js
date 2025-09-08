@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PeliHome from "../PeliHome/PeliHome";
+import "./PelisHome.css"
 
 class PelisHome extends Component {
   constructor (){
