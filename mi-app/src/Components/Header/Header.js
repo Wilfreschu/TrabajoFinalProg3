@@ -5,8 +5,8 @@ function Header(){
     const itemsHeader= [
         {ruta:"/", name: "Home"},
         {ruta:"/favoritos", name: "Favorites"},
-        {ruta:"/Cartelera", name: "Cartelera"},
-        {ruta:"/Antiguas", name: "Antiguas"},
+        {ruta:"/Series", name: "Series al aire"},
+        {ruta:"/Peliculas", name: "Peliculas en cartelera"},
     ];
     return(
          <nav>

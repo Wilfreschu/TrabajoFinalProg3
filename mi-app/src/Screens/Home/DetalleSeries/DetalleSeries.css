@@ -1,0 +1,26 @@
+.detalle-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.detalle-container h2 {
+  color: #0018b4;
+  margin-bottom: 20px;
+}
+
+.detalle-container img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.detalle-container p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}

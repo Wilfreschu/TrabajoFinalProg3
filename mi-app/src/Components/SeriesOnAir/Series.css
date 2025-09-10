@@ -1,0 +1,6 @@
+.detalle-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 35px;
+}

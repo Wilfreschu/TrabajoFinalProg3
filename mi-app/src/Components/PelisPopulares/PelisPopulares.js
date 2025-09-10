@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PeliHome from "../PeliHome/PeliHome";
+import PeliPopular from "../PeliPopular/PeliPopular";
 
 class PelisPopulares extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class PelisPopulares extends Component {
   render() {
     return (
       <section>
-        <h2 className="titulo-grupo">Películas más populares</h2>
+        <h2 className="titulo-grupo">Películas en cartelera</h2>
         <div className="card-container">
           {this.state.datos.length === 0 ? (
             <h3>Cargando...</h3>

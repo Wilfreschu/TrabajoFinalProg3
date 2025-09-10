@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PeliHome from "../PeliHome/PeliHome";
 import "./PelisHome.css"
+import PeliPopular from "../PeliPopular/PeliPopular";
 
 class PelisHome extends Component {
   constructor (){
@@ -11,7 +12,7 @@ class PelisHome extends Component {
   }
 
   componentDidMount(){
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR&page=1`)
+    fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR&page=1`)
       .then(response => response.json())
       .then(data => this.setState({
         datos: data.results,
@@ -24,17 +25,17 @@ class PelisHome extends Component {
 render(){
   return (
     <section>
-      <h2 className="titulo-grupo">Películas en cartel</h2>
+      <h2 className="titulo-grupo">Series al aire</h2>
       <div className="card-container">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
           this.state.datos.map((item, idx) => (
             idx < 4 ?   
-              <PeliHome 
+              <PeliPopular 
                 key={item.id + idx} 
                 Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`} 
-                Nombre={item.original_title} 
+                Nombre={item.original_name} 
                 Descripcion={item.overview} 
                 id={item.id}/> 
             : null
