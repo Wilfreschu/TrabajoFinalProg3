@@ -7,6 +7,7 @@ import DetallePelis from './Screens/Home/DetallePelis/DetallePelis';
 import DetalleSeries from './Screens/Home/DetalleSeries/DetalleSeries';
 import Peliculas from './Screens/Home/Peliculas/Peliculas';
 import Series from './Screens/Home/Series/Series';
+
 function App() {
   return (
     <Router>
