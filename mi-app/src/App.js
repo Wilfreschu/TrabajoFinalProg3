@@ -7,7 +7,7 @@ import DetallePelis from './Screens/Home/DetallePelis/DetallePelis';
 import DetalleSeries from './Screens/Home/DetalleSeries/DetalleSeries';
 import Peliculas from './Screens/Home/Peliculas/Peliculas';
 import Series from './Screens/Home/Series/Series';
-
+import SearchResults from '../../mi-app/src/Components/SearchResults/';
 function App() {
   return (
     <Router>
@@ -17,6 +17,7 @@ function App() {
       <Route path="/detalleSerie/:ids" component = {DetalleSeries}/>
       <Route path= "/Peliculas" component = {Peliculas}/>
       <Route path= "/Series" component = {Series}/>
+      <Route path="/resultados/:f" component = {SearchResults} />
       </Switch>
     </Router>
    

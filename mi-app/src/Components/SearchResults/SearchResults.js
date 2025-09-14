@@ -29,13 +29,13 @@ render() {
         <h2>Resultados de búsqueda</h2>
         {this.state.resultados=="" ?
           <h3>Cargando...</h3> :
-        this.state.resultados.map((item) => (
+        this.state.resultados.map((item, idx) => (
         <DetallePelis 
-            key={item.id}
-            Mimagen={item.image}
-            Mnombre={item.name}
-            Mstatus={item.status}
-            id={item.id}
+            key={item.id + idx}
+            Pimagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+            Pnombre={item.original_name}
+            Pid={item.id}
+            PDescripcion={item.overview} 
         />
         ))}
     </div>
@@ -43,4 +43,4 @@ render() {
 }
 }
 
-export default DetallePelis;
+export default SearchResults;
