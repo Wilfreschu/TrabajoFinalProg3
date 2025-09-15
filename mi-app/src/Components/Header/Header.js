@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom/cjs/react-router-dom";
+import SearchForm from "../SearchForm/SearchForm";
 import "./Header.css"
 function Header(){
     const itemsHeader= [
@@ -18,10 +19,7 @@ function Header(){
             ))}
         </ul>
        <h1 className="titulo"> CCritics</h1>
-        <form className="search-form" action="results.html" method="get">
-          <input type="text" name="searchData" placeholder="Buscar..." />
-          <button type="submit" className="btn btn-success btn-sm">Buscar</button>
-        </form>
+        <SearchForm />
       </nav>
     )
 }

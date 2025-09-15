@@ -5,7 +5,8 @@ class SearchForm extends Component {
 constructor() {
     super();
     this.state = {
-    search: ""
+    search: "",
+    type:"",
     };
 }
 
@@ -15,7 +16,7 @@ controlarCambios(event) {
     )}
 ejecutarBusqueda(e){
     e.preventDefault();
-    this.props.history.push("/Filtro/" + this.state.search)
+    this.props.history.push("/resultados/" + this.state.search)
   };
 
 render() {
@@ -23,10 +24,11 @@ render() {
     <form onSubmit={(e)=> this.ejecutarBusqueda(e)}>
         <input
             type="text"
-            placeholder="Buscar pelidula..."
+            placeholder="Buscar pelicula..."
             value={this.state.search}
             onChange={(event)=> this.controlarCambios(event)}
         />
+        
         <button type="submit">Buscar</button>
     </form>
     );

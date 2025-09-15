@@ -11,7 +11,6 @@ function Home() {
     <div className="container">
      <Header/>
 <section>
-  <SearchForm />
   <SeriesHome/>
   <PelisHome />
 </section>
