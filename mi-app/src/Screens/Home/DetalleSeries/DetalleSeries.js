@@ -31,6 +31,16 @@ class DetalleSeries extends Component {
             <img 
               src={`https://image.tmdb.org/t/p/w342${this.state.info.poster_path}`} 
             />
+            <p><strong>Fecha de estreno:</strong> {this.state.info.first_air_date}</p>
+            <p><strong>Rating:</strong> {this.state.info.vote_average}</p>
+            <p><strong>Sinópsis:</strong> {this.state.info.overview}</p>
+            <p><strong>Géneros:</strong></p>
+            <ul>
+              {this.state.info.genres.map(g => (
+                <li key={g.id}>{g.name}</li>
+              ))}
+            </ul>
+            <button className="boton-fav">Agregar a Favoritos</button>
           </div>
         )}
       </div>

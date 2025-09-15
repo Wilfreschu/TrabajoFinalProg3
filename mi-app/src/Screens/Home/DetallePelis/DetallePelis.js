@@ -32,8 +32,17 @@ class Detalle extends Component {
               src={`https://image.tmdb.org/t/p/w342${this.state.info.poster_path}`} 
               alt={this.state.info.title} 
             />
-            <p>Fecha de estreno: {this.state.info.release_date}</p>
-            <p>Rating: {this.state.info.vote_average}</p>
+            <p><strong>Fecha de estreno:</strong> {this.state.info.release_date}</p>
+            <p><strong>Duración:</strong> {this.state.info.runtime} min</p>
+            <p><strong>Rating:</strong> {this.state.info.vote_average}</p>
+            <p><strong>Sinópsis:</strong> {this.state.info.overview}</p>
+            <p><strong>Géneros:</strong></p>
+            <ul>
+              {this.state.info.genres.map(g => (
+              <li key={g.id}>{g.name}</li>
+              ))}
+            </ul>
+            <button className="boton-fav">Agregar a Favoritos</button>
           </div>
         )}
       </div>
