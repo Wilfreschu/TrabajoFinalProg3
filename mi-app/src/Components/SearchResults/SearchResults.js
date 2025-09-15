@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DetallePelis from "../../Components/DetallePelis/DetallePelis";
+import DetallePelis from "../../Screens/Home/DetallePelis/DetallePelis";
 class SearchResults extends Component {
 constructor(props) {
     super(props);

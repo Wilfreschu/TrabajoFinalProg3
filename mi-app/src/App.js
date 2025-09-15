@@ -7,7 +7,7 @@ import DetallePelis from './Screens/Home/DetallePelis/DetallePelis';
 import DetalleSeries from './Screens/Home/DetalleSeries/DetalleSeries';
 import Peliculas from './Screens/Home/Peliculas/Peliculas';
 import Series from './Screens/Home/Series/Series';
-import SearchResults from '../../mi-app/src/Components/SearchResults/';
+import SearchResults from './Components/SearchResults/SearchResults';
 function App() {
   return (
     <Router>
