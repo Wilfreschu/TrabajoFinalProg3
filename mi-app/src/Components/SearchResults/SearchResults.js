@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import DetallePelis from "../../Screens/Home/DetallePelis/DetallePelis";
 import PeliHome from "../PeliHome/PeliHome";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 class SearchResults extends Component {
 constructor(props) {
     super(props);
@@ -27,8 +29,10 @@ componentDidMount() {
 
 render() {
     return (
-    <div>
-        <h2>Resultados de búsqueda</h2>
+     <React.Fragment>
+        <Header/>
+          <h2 className="titulo-grupo">Resultados de búsqueda</h2>
+    <section className="card-container">
         {this.state.resultados.length === 0 ?
           <h3>Cargando...</h3> :
         this.state.resultados.map((item, idx) => (
@@ -40,7 +44,9 @@ render() {
             Descripcion={item.overview} 
         />
         ))}
-    </div>
+    </section>
+     <Footer/>
+      </React.Fragment>
     );
 }
 }

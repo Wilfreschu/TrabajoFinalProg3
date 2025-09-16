@@ -39,7 +39,7 @@ class SeriesOnAir extends Component {
 
   render() {
     return (
-      <section className="detalle-container">
+      <section className="card-container">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
@@ -53,7 +53,7 @@ class SeriesOnAir extends Component {
             />
           ))
         )}
-        <button onClick={() => this.cargarMas()}>Next</button>
+        <button className="nextSeries"onClick={() => this.cargarMas()}>Next</button>
       </section>
     );
   }

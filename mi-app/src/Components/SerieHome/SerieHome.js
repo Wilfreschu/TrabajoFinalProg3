@@ -29,7 +29,7 @@ class SerieHome extends Component {
     return(
       <div className="peli-card">
         <img src={this.props.Imagen} alt="" />
-        <p>{this.props.Nombre}</p>
+        <p className="Nombre">{this.props.Nombre}</p>
         <button onClick={()=> this.cambioBoton()}>{this.state.textoBoton}</button>
         {this.state.verMas==false ? null : <p>Descripcion {this.props.Descripcion}</p>}
         <Link to={`/detalleSerie/${this.props.id}`}>

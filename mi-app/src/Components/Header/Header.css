@@ -1,8 +1,9 @@
 nav {
     display: flex;
-    align-items: center;       /* centra verticalmente */
-    justify-content: space-between; /* deja links a la izquierda, h1 y form a la derecha */
-    background-color: #0018b4;
+    align-items: center;       
+    justify-content: space-between; 
+    background-image: url('./violet-background-9mwt4pzxlu7g735p.jpg');
+    
     border-radius: 4px;
     padding: 0.5rem 1rem;
     margin-bottom: 20px;
@@ -50,4 +51,5 @@ nav {
 }
 .titulo{
     color: white;
+    font-size: 36px;
 }

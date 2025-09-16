@@ -18,7 +18,7 @@ function Header(){
                 </li>
             ))}
         </ul>
-       <h1 className="titulo"> CCritics</h1>
+       <h1 className="titulo"> Cinema Critics</h1>
         <SearchForm />
       </nav>
     )

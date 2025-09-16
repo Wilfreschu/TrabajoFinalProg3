@@ -1,14 +1,20 @@
 .detalle-container {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fdfdfd;
+  max-width: 600px;
+  background-image: url('./violet-background-9mwt4pzxlu7g735p.jpg');
   border-radius: 8px;
   padding: 20px;
-  text-align: center;
+}
+.alineacion-detalle{
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;  
+  margin-left: 500px;     
+
 }
 
 .detalle-container h2 {
-  color: #0018b4;
+  color: white;
   margin-bottom: 20px;
 }
 
@@ -22,5 +28,6 @@
 .detalle-container p {
   margin: 10px 0;
   font-size: 16px;
-  color: #333;
+  color: white;
+  
 }

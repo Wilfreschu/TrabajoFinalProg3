@@ -26,17 +26,19 @@ class PeliculaCartelera extends Component {
 
   render(){
     return(
-      <div className="serie-card">
-        <img src={this.props.Pimagen} alt={this.props.Pnombre} />
-        <p>Nombre: {this.props.Pnombre}</p>
+      
+        <div className="peli-card">
+          <img src={this.props.Pimagen} alt={this.props.Pnombre} />
+          <p> {this.props.Pnombre}</p>
 
-        <button onClick={() => this.cambioBoton()}>{this.state.textoBoton}</button>
-        {this.state.verMas === false ? null : <p>Descripción: {this.props.SDescripcion}</p>}
+          <button onClick={() => this.cambioBoton()}>{this.state.textoBoton}</button>
+          {this.state.verMas === false ? null : <p>Descripción: {this.props.PDescripcion}</p>}
 
-        <Link to={`/detalleSerie/${this.props.Sid}`}>
-          <button>Ir a detalle</button>
-        </Link>
-      </div>
+          <Link to={`/detallePeli/${this.props.Pid}`}>
+            <button>Ir a detalle</button>
+          </Link>
+        </div>
+
     );
   }
 }

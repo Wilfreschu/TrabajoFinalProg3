@@ -10,7 +10,7 @@ render(){
   return(
         <React.Fragment>
           <Header/>
-             <p>Peliculas en cartelera</p>
+             <p className="titulo-grupo">Peliculas en cartelera</p>
              <PeliculasCartelera/>
           <Footer/>
         </React.Fragment>

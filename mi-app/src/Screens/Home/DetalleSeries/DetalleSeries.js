@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./DetalleSeries.css"
+import Header from "../../../Components/Header/Header";
+import Footer from "../../../Components/Footer/Footer";
 
 class DetalleSeries extends Component {
   constructor(props) {
@@ -22,7 +24,10 @@ class DetalleSeries extends Component {
 
   render() {
     return (
-      <div className="detalle-container">
+      <React.Fragment>
+        <Header/>
+   
+      <div className="peli-detalle">
         {this.state.info === null ? (
           <h3>Cargando detalle...</h3>
         ) : (
@@ -44,6 +49,9 @@ class DetalleSeries extends Component {
           </div>
         )}
       </div>
+  
+      <Footer/>
+      </React.Fragment>
     );
   }
 }

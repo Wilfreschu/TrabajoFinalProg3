@@ -9,7 +9,7 @@ render(){
   return(
         <React.Fragment>
           <Header/>
-             <p>Series Al Aire</p>
+             <p className="titulo-grupo">Series Al Aire</p>
              <SeriesOnAir/>
         <Footer/>
         </React.Fragment>

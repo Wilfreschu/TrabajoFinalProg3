@@ -26,9 +26,9 @@ class SerieOnAir extends Component {
 
   render(){
     return(
-      <div className="serie-card">
+      <div className="peli-card">
         <img src={this.props.Simagen} alt={this.props.Snombre} />
-        <p>Nombre: {this.props.Snombre}</p>
+        <p> {this.props.Snombre}</p>
         
 
         <button onClick={() => this.cambioBoton()}>{this.state.textoBoton}</button>

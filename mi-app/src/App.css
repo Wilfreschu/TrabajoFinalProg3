@@ -2,6 +2,11 @@ body{
     width: 100%;
      margin: 0;
     padding: 0;
+    background-image: url('../Images/photo-1614850523011-8f49ffc73908.jpeg');
+    background-size: cover;     
+    background-position: center; 
+    background-size: cover;     
+    background-position: center; 
 }
 .cards {
     padding: 0.75rem 1.25rem;
@@ -44,6 +49,15 @@ body{
 
 .all-movies .single-card-movie {
     width: 15%;
+}
+.titulo-grupo {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+  margin-right: 15px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 @media(min-width: 765px){

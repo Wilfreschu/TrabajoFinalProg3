@@ -1,5 +1,5 @@
 .peli-card {
-  background-color: #f4f4f4;
+  background-image: url('../Header/violet-background-9mwt4pzxlu7g735p.jpg');
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
@@ -16,7 +16,7 @@
 .peli-card p {
   margin: 8px 0;
   font-weight: bold;
-  color: #0018b4;
+  color: white;
 }
 
 .peli-card button {
@@ -27,9 +27,5 @@
   padding: 6px 12px;
   margin: 5px;
   font-size: 14px;
-}
-
-.peli-card button:hover {
-  background-color: #0030e0;
 }
 

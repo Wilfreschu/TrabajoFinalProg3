@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./PeliculasCartelera.css"
 import PeliculaCartelera from "../PeliculaCartelera/PeliculaCartelera";
 class PeliculasCartelera extends Component {
   constructor() {
@@ -39,22 +39,25 @@ class PeliculasCartelera extends Component {
 
   render() {
     return (
-      <section className="detalle-container">
+      <div>
+      <section className="card-container">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
+          
           this.state.datos.map((item, idx) => (
             <PeliculaCartelera
               key={item.id + idx}
               Pimagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
-              Pnombre={item.original_name}
+              Pnombre={item.original_title}
               Pid={item.id}
               PDescripcion={item.overview} 
             />
           ))
         )}
-        <button onClick={() => this.cargarMas()}>Next</button>
       </section>
+      <button className="next" onClick={() => this.cargarMas()}>Next</button>
+      </div>
     );
   }
 }
