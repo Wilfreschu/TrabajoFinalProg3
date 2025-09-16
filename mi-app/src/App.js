@@ -17,7 +17,7 @@ function App() {
       <Route path="/detalleSerie/:ids" component = {DetalleSeries}/>
       <Route path= "/Peliculas" component = {Peliculas}/>
       <Route path= "/Series" component = {Series}/>
-      <Route path="/resultados/:f" component = {SearchResults} />
+      <Route path="/resultados/:type/:nombre" component = {SearchResults} />
       </Switch>
     </Router>
    
