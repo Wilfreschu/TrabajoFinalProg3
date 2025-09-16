@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PeliHome from "../PeliHome/PeliHome";
-
+import "../Css/Cards.css"
 class PelisHome extends Component {
   constructor() {
     super();

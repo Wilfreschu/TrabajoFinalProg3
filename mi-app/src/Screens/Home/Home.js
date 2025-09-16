@@ -5,7 +5,6 @@ import Footer from "../../Components/Footer/Footer";
 import SeriesHome from "../../Components/SeriesHome/SeriesHome";
 import PelisHome from "../../Components/PelisHome/PelisHome";
 import SearchForm from "../../Components/SearchForm/SearchForm";
-import Filtrar from "../../Components/Filtrar/Filtrar";
 function Home() {
   return (
     <React.Fragment>

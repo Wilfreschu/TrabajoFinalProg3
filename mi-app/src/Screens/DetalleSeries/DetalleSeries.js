@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import "./DetalleSeries.css"
-import Header from "../../../Components/Header/Header";
-import Footer from "../../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 class DetalleSeries extends Component {
   constructor(props) {

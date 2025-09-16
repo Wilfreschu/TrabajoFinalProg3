@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./PeliHome.css"
 
 class PeliHome extends Component {  
   constructor (props){

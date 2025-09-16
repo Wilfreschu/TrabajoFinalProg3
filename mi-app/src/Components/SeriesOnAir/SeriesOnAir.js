@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SerieOnAir from "../SerieOnAir/SerieOnAir";
-import "./Series.css"
+import "./SeriesOnAir.css"
 class SeriesOnAir extends Component {
   constructor() {
     super();

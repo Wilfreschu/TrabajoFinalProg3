@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SeriesOnAir from "../../../Components/SeriesOnAir/SeriesOnAir";
-import PeliculasCartelera from "../../../Components/PeliculasCartelera/PeliculasCartelera";
-import Header from "../../../Components/Header/Header";
-import Footer from "../../../Components/Footer/Footer";
+import SeriesOnAir from "../../Components/SeriesOnAir/SeriesOnAir";
+import PeliculasCartelera from "../../Components/PeliculasCartelera/PeliculasCartelera";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 
 class Peliculas extends Component {

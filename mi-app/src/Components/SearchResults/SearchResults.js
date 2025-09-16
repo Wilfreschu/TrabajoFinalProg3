@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DetallePelis from "../../Screens/Home/DetallePelis/DetallePelis";
+import DetallePelis from "../../Screens/DetallePelis/DetallePelis";
 import PeliHome from "../PeliHome/PeliHome";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
