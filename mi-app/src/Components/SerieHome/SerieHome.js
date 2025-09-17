@@ -3,16 +3,24 @@ import { Link } from "react-router-dom";
 import "./SerieHome.css"
 
 class SerieHome extends Component {  
-  constructor (props){
+  constructor(props){
     super(props)
-    this.state= {
-      verMas : false,
-      textoBoton : "Ver más"
+    this.state = {
+      verMas: false,
+      textoBoton: "Ver más",
+      esFavorito: false
     }
   }
 
+  componentDidMount(){
+    let favs = localStorage.getItem("favoritos_series");
+    favs = favs ? JSON.parse(favs) : [];
+    let esFav = favs.includes(this.props.id);
+    this.setState({ esFavorito: esFav });
+  }
+
   cambioBoton(){
-    if(this.state.verMas == false){
+    if(this.state.verMas === false){
       this.setState({
         verMas: true,
         textoBoton: "ver menos",
@@ -25,13 +33,41 @@ class SerieHome extends Component {
     }
   }
 
+  manejarFavorito() {
+    let favs = localStorage.getItem("favoritos_series");
+    favs = favs ? JSON.parse(favs) : [];
+
+    let nuevosFavs = [];
+    let encontrado = false;
+
+    for(let i=0; i<favs.length; i++){
+      if(favs[i] === this.props.id){
+        encontrado = true;
+      } else {
+        nuevosFavs.push(favs[i]);
+      }
+    }
+
+    if(!encontrado){
+      nuevosFavs.push(this.props.id);
+    }
+
+    localStorage.setItem("favoritos_series", JSON.stringify(nuevosFavs));
+    this.setState({ esFavorito: !this.state.esFavorito });
+  }
+
   render(){
     return(
       <div className="peli-card">
         <img src={this.props.Imagen} alt="" />
         <p className="Nombre">{this.props.Nombre}</p>
-        <button onClick={()=> this.cambioBoton()}>{this.state.textoBoton}</button>
-        {this.state.verMas==false ? null : <p>Descripcion {this.props.Descripcion}</p>}
+        <button onClick={() => this.cambioBoton()}>{this.state.textoBoton}</button>
+        {this.state.verMas === false ? null : <p>Descripcion {this.props.Descripcion}</p>}
+
+        <button onClick={() => this.manejarFavorito()}>
+          {this.state.esFavorito ? "Quitar de Favoritos" : "Agregar a Favoritos"}
+        </button>
+
         <Link to={`/detalleSerie/${this.props.id}`}>
           <button>Ir a detalle</button>
         </Link>

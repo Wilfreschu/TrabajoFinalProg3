@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -8,6 +7,7 @@ import DetalleSeries from './Screens/DetalleSeries/DetalleSeries';
 import Peliculas from './Screens/Peliculas/Peliculas';
 import Series from './Screens/Series/Series';
 import SearchResults from './Components/SearchResults/SearchResults';
+import Favoritos from './Screens/Favoritos/Favoritos';
 function App() {
   return (
     <Router>
@@ -15,6 +15,7 @@ function App() {
       <Route exact path='/' component={Home} />
       <Route path="/detallePeli/:id" component={DetallePelis} />
       <Route path="/detalleSerie/:ids" component = {DetalleSeries}/>
+      <Route path="/favoritos" component={Favoritos}/>
       <Route path= "/Peliculas" component = {Peliculas}/>
       <Route path= "/Series" component = {Series}/>
       <Route path="/resultados/:type/:nombre" component = {SearchResults} />
@@ -23,5 +24,6 @@ function App() {
    
   );
 }
+
 
 export default App;
