@@ -102,5 +102,4 @@ class DetalleSeries extends Component {
     );
   }
 }
-
 export default DetalleSeries;
