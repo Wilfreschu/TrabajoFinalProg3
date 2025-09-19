@@ -17,8 +17,16 @@ class PelisHome extends Component {
       }))
       .catch(error => console.log(error));
   }
+  filtrarPersonajes(textoAFiltrar) {
+    return this.state.datos.filter((item) =>
+      item.original_title.toLowerCase().includes(textoAFiltrar.toLowerCase())
+    );
+  }
+
 
   render() {
+    const personajesFiltrados = this.filtrarPersonajes(this.props.filtro);
+
     return (
       <section>
         <h2 className="titulo-grupo">Películas en cartelera</h2>
@@ -26,7 +34,7 @@ class PelisHome extends Component {
           {this.state.datos.length === 0 ? (
             <h3>Cargando...</h3>
           ) : (
-            this.state.datos.map((item, idx) => (
+            personajesFiltrados.map((item, idx) => (
               idx < 4 ?   
                 <PeliHome 
                   key={item.id + idx} 

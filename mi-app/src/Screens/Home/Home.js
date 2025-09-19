@@ -5,15 +5,15 @@ import Footer from "../../Components/Footer/Footer";
 import SeriesHome from "../../Components/SeriesHome/SeriesHome";
 import PelisHome from "../../Components/PelisHome/PelisHome";
 import SearchForm from "../../Components/SearchForm/SearchForm";
+import FiltroHome from "../../Components/Filtro/Filtro";
 function Home() {
   return (
     <React.Fragment>
     <div className="container">
      <Header/>
 <section>
-
-  <SeriesHome/>
-  <PelisHome />
+  <FiltroHome />
+  
 </section>
       <Footer/>
     </div>
