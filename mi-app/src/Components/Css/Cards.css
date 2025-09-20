@@ -47,3 +47,25 @@
   font-size: 14px;
 }
 
+
+@media(max-width: 480px){
+  .peli-card{
+    width: 70%;
+    height: auto;
+
+  }
+  nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  } 
+  .titulo{
+    width: 70%;
+    justify-content: center;
+  }
+  .FormFiltro{
+    text-align: center;
+  }
+  
+}

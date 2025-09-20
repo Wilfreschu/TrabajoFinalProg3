@@ -107,3 +107,6 @@ body{
         grid-template-columns: 4fr 3fr;
     }
 }
+@media(min-width: 400px){
+      
+}

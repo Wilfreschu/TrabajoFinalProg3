@@ -21,7 +21,7 @@ class FiltroHome extends Component {
   render() {
     return (
       <section>
-        <form onSubmit={(e)=> this.ejecutarBusqueda(e)}>
+        <form className="FormFiltro" onSubmit={(e)=> this.ejecutarBusqueda(e)}>
           <label>Nombre:</label>
           <input
             type="text"
