@@ -55,15 +55,14 @@ class Favoritos extends Component {
     return(
       <React.Fragment>
         <Header/>  
+<h2 className="titulo-grupo">Películas Favoritas</h2>
+        <section className="card-container">
 
-        <div className="favoritos-container">
-          <h2>Películas Favoritas</h2>
-          <div className="favoritos-grid">
             {pelis.length === 0 ? (
-              <p>No hay películas favoritas.</p>
+              <p className="notFound">No hay películas favoritas.</p>
             ) : pelis.map(function(peli){
                 return (
-                  <div key={peli.id} className="favorito-card">
+                  <div key={peli.id} className="peli-card">
                     <Link to={"/detallePeli/" + peli.id}>
                       <img src={"https://image.tmdb.org/t/p/w200" + peli.poster_path} alt={peli.title}/>
                       <p>{peli.title}</p>
@@ -71,15 +70,14 @@ class Favoritos extends Component {
                   </div>
                 );
             })}
-          </div>
-
-          <h2>Series Favoritas</h2>
-          <div className="favoritos-grid">
+        </section>
+        <h2 className="titulo-grupo">Series Favoritas</h2>
+        <section className="card-container">
             {series.length === 0 ? (
-              <p>No hay series favoritas.</p>
+              <p className="notFoundS">No hay series favoritas.</p>
             ) : series.map(function(ser){
                 return (
-                  <div key={ser.id} className="favorito-card">
+                  <div key={ser.id} className="peli-card">
                     <Link to={"/detalleSerie/" + ser.id}>
                       <img src={"https://image.tmdb.org/t/p/w200" + ser.poster_path} alt={ser.name}/>
                       <p>{ser.name}</p>
@@ -87,8 +85,8 @@ class Favoritos extends Component {
                   </div>
                 );
             })}
-          </div>
-        </div>
+         </section>
+     
 
         <Footer/>
       </React.Fragment>

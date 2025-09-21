@@ -2,7 +2,7 @@ body{
     width: 100%;
      margin: 0;
     padding: 0;
-    background-image: url('../Images/photo-1614850523011-8f49ffc73908.jpeg');
+    background-image: url('../public/Images/photo-1614850523011-8f49ffc73908.jpeg');
     background-size: cover;     
     background-position: center; 
     background-size: cover;     
@@ -60,7 +60,7 @@ body{
   font-weight: bold;
 }
 .peli-detalle {
-  background-image: url('../../mi-app/Images/violet-background-9mwt4pzxlu7g735p.jpg');
+  background-image: url('../public/Images/violet-background-9mwt4pzxlu7g735p.jpg');
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
@@ -100,7 +100,25 @@ body{
   list-style: none;
   margin-right: 30px;
 }
+.error404{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+  margin-bottom: 300px;
+  font-size: 50px;
+}
+.notFound{
+  color: white;
+  font-size: 20px;
 
+}
+.notFoundS{
+    color: white;
+  font-size: 20px;
+  margin-bottom: 363px;
+}
 
 @media(min-width: 765px){
     nav {
