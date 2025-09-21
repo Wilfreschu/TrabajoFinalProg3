@@ -13,80 +13,83 @@ class Favoritos extends Component {
   }
 
   componentDidMount(){
-    let favsPelis = localStorage.getItem("favoritos_pelis");
-    favsPelis = favsPelis ? JSON.parse(favsPelis) : [];
-    let pelisCompletas = []; // cambiado a let
+  let favsPelisString = localStorage.getItem("favoritos_pelis");
+  let favsPelis = JSON.parse(favsPelisString);
+    let pelisArray = [];
 
-    for(let i = 0; i < favsPelis.length; i++){
-      let id = favsPelis[i];
+    favsPelis.map(id => {
       fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR")
         .then(res => res.json())
         .then(data => {
-          if(data && data.id){ 
-            pelisCompletas.push(data);
-            this.setState({ pelis: pelisCompletas });
-          }
+            pelisArray.push(data);
+
+            let pelisToString = JSON.stringify(pelisArray);
+            localStorage.setItem("pelis_completas", pelisToString);
+            let recuperoStorage = localStorage.getItem("pelis_completas");
+            let pelisRecuperadas = JSON.parse(recuperoStorage);
+
+            this.setState({ pelis: pelisRecuperadas });
+          
         })
         .catch(err => console.log(err));
-    }
+    });
 
-    let favsSer = localStorage.getItem("favoritos_series");
-    favsSer = favsSer ? JSON.parse(favsSer) : [];
-    let seriesCompletas = []; // cambiado a let
+    let favsSeriesString = localStorage.getItem("favoritos_series");
+    let favsSeries = JSON.parse(favsSeriesString);
+    let seriesArray = [];
 
-    for(let j = 0; j < favsSer.length; j++){
-      let idSerie = favsSer[j];
-      fetch("https://api.themoviedb.org/3/tv/" + idSerie + "?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR")
+    favsSeries.map(id => {
+      fetch("https://api.themoviedb.org/3/tv/" + id + "?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR")
         .then(res => res.json())
         .then(data => {
-          if(data && data.id){ 
-            seriesCompletas.push(data);
-            this.setState({ series: seriesCompletas });
+            seriesArray.push(data);
+
+            let seriesToString = JSON.stringify(seriesArray);
+            localStorage.setItem("series_completas", seriesToString);
+            let recuperoStorage = localStorage.getItem("series_completas");
+            let seriesRecuperadas = JSON.parse(recuperoStorage);
+
+            this.setState({ series: seriesRecuperadas });
           }
-        })
+        )
         .catch(err => console.log(err));
-    }
+    });
   }
 
   render(){
-    let pelis = this.state.pelis.filter(function(peli){ return peli && peli.id; });
-    let series = this.state.series.filter(function(ser){ return ser && ser.id; });
-
-    return(
+    return (
       <React.Fragment>
         <Header/>  
-<h2 className="titulo-grupo">Películas Favoritas</h2>
-        <section className="card-container">
 
-            {pelis.length === 0 ? (
-              <p className="notFound">No hay películas favoritas.</p>
-            ) : pelis.map(function(peli){
-                return (
-                  <div key={peli.id} className="peli-card">
-                    <Link to={"/detallePeli/" + peli.id}>
-                      <img src={"https://image.tmdb.org/t/p/w200" + peli.poster_path} alt={peli.title}/>
-                      <p>{peli.title}</p>
-                    </Link>
-                  </div>
-                );
-            })}
-        </section>
-        <h2 className="titulo-grupo">Series Favoritas</h2>
-        <section className="card-container">
-            {series.length === 0 ? (
-              <p className="notFoundS">No hay series favoritas.</p>
-            ) : series.map(function(ser){
-                return (
-                  <div key={ser.id} className="peli-card">
-                    <Link to={"/detalleSerie/" + ser.id}>
-                      <img src={"https://image.tmdb.org/t/p/w200" + ser.poster_path} alt={ser.name}/>
-                      <p>{ser.name}</p>
-                    </Link>
-                  </div>
-                );
-            })}
-         </section>
-     
+        <div className="favoritos-container">
+          <h2>Películas Favoritas</h2>
+          <div className="favoritos-grid">
+            {this.state.pelis.length === 0 ? (
+              <p>No hay películas favoritas.</p>
+            ) : this.state.pelis.map(peli => (
+              <div key={peli.id} className="favorito-card">
+                <Link to={"/detallePeli/" + peli.id}>
+                  <img src={"https://image.tmdb.org/t/p/w200" + peli.poster_path} alt={peli.title}/>
+                  <p>{peli.title}</p>
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <h2>Series Favoritas</h2>
+          <div className="favoritos-grid">
+            {this.state.series.length === 0 ? (
+              <p>No hay series favoritas.</p>
+            ) : this.state.series.map(ser => (
+              <div key={ser.id} className="favorito-card">
+                <Link to={"/detalleSerie/" + ser.id}>
+                  <img src={"https://image.tmdb.org/t/p/w200" + ser.poster_path} alt={ser.name}/>
+                  <p>{ser.name}</p>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <Footer/>
       </React.Fragment>
