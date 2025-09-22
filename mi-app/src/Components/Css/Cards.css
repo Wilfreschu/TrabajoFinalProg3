@@ -49,6 +49,10 @@
 .filtro{
   color: white;
 }
+.estructura{
+   display: flex;
+   justify-content: center;
+}
 .VerTodas{
    background-color: #0018b4;
   color: white;
@@ -56,7 +60,6 @@
   font-weight: bold;
   border-radius: 4px;
   padding: 15px 15px;
-  margin-left: 712px;
   margin-bottom: 30px;
   font-size: 14px;
 }

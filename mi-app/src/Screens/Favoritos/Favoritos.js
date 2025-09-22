@@ -8,13 +8,17 @@ class Favoritos extends Component {
     super(props);
     this.state = {
       pelis: [],
-      series: []
+      series: [],
+      esFavorito: false
     };
   }
 
   componentDidMount(){
-  let favsPelisString = localStorage.getItem("favoritos_pelis");
-  let favsPelis = JSON.parse(favsPelisString);
+    let favs = localStorage.getItem("favoritos_pelis");
+    favs = favs ? JSON.parse(favs) : [];
+    let esFav = favs.includes(this.props.id);
+    let favsPelisString = localStorage.getItem("favoritos_pelis");
+    let favsPelis = JSON.parse(favsPelisString);
     let pelisArray = [];
 
     favsPelis.map(id => {
@@ -28,7 +32,9 @@ class Favoritos extends Component {
             let recuperoStorage = localStorage.getItem("pelis_completas");
             let pelisRecuperadas = JSON.parse(recuperoStorage);
 
-            this.setState({ pelis: pelisRecuperadas });
+            this.setState({ pelis: pelisRecuperadas,
+              esFavorito: esFav
+             });
           
         })
         .catch(err => console.log(err));
@@ -56,6 +62,75 @@ class Favoritos extends Component {
     });
   }
 
+  manejarFavorito() {
+    let favs = localStorage.getItem("favoritos_pelis");
+    favs = favs ? JSON.parse(favs) : [];
+
+    let nuevosFavs = [];
+    let encontrado = false;
+
+    for(let i=0; i<favs.length; i++){
+      if(favs[i] === this.props.id){
+        encontrado = true;
+      } else {
+        nuevosFavs.push(favs[i]);
+      }
+    }
+
+    if(!encontrado){
+      nuevosFavs.push(this.props.id);
+    }
+
+    localStorage.setItem("favoritos_pelis", JSON.stringify(nuevosFavs));
+    this.setState({ esFavorito: !this.state.esFavorito });
+  }
+
+  manejarFavoritoPeli(id) {
+    let favs = localStorage.getItem("favoritos_pelis");
+    favs = favs ? JSON.parse(favs) : [];
+
+    let nuevosFavs = [];
+    let encontrado = false;
+
+    for(let i=0; i<favs.length; i++){
+      if(favs[i] === id){
+        encontrado = true;
+      } else {
+        nuevosFavs.push(favs[i]);
+      }
+    }
+
+    if(!encontrado){
+      nuevosFavs.push(id);
+    }
+
+    localStorage.setItem("favoritos_pelis", JSON.stringify(nuevosFavs));
+    this.setState({ esFavorito: !this.state.esFavorito });
+  }
+
+  manejarFavoritoSerie(id) {
+    let favs = localStorage.getItem("favoritos_series");
+    favs = favs ? JSON.parse(favs) : [];
+
+    let nuevosFavs = [];
+    let encontrado = false;
+
+    for(let i=0; i<favs.length; i++){
+      if(favs[i] === id){
+        encontrado = true;
+      } else {
+        nuevosFavs.push(favs[i]);
+      }
+    }
+
+    if(!encontrado){
+      nuevosFavs.push(id);
+    }
+
+    localStorage.setItem("favoritos_series", JSON.stringify(nuevosFavs));
+    this.setState({ esFavorito: !this.state.esFavorito });
+  }
+
   render(){
     return (
       <React.Fragment>
@@ -72,6 +147,11 @@ class Favoritos extends Component {
                   <p>{peli.title}</p>
                   <button>ir al detalle</button>
                 </Link>
+                <button onClick={() => this.manejarFavoritoPeli(peli.id)}>
+                  { (JSON.parse(localStorage.getItem("favoritos_pelis") || "[]").includes(peli.id))
+                      ? "Quitar de Favoritos"
+                      : "Agregar a Favoritos" }
+                </button>
               </div>
             ))}
     
@@ -89,8 +169,13 @@ class Favoritos extends Component {
                   <img src={"https://image.tmdb.org/t/p/w200" + ser.poster_path} alt={ser.name}/>
                   <p>{ser.name}</p>
                   <Link to={"/detalleSerie/" + ser.id}>
-                  <button>ir al detalle</button>
-                </Link>
+                    <button>ir al detalle</button>
+                  </Link>
+                  <button onClick={() => this.manejarFavoritoSerie(ser.id)}>
+                    { (JSON.parse(localStorage.getItem("favoritos_series") || "[]").includes(ser.id))
+                        ? "Quitar de Favoritos"
+                        : "Agregar a Favoritos" }
+                  </button>
               </div>
             ))}
           </section>

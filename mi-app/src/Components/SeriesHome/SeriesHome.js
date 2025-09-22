@@ -40,7 +40,9 @@ render(){
         )}
       </div>
       <Link to={'/Series'}>
-      <button className="VerTodas">Ver todas</button>
+        <div className="estructura">
+          <button className="VerTodas">Ver todas</button>
+          </div>
       </Link>
     </section>
   );

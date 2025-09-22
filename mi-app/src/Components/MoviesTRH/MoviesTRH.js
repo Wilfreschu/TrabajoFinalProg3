@@ -42,7 +42,9 @@ class MoviesTRH extends Component {
           )}
         </div>
          <Link to= {'/PeliculasTR'}>
+           <div className="estructura">
           <button className="VerTodas">Ver todas</button>
+          </div>
         </Link>
       </section>
     );

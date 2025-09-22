@@ -73,7 +73,9 @@ class MoviesTR extends Component {
           ))
         )}
       </section>
+      <div className="estructura">
       <button className="next" onClick={() => this.cargarMas()}>Next</button>
+      </div>
       </div>
     );
   }

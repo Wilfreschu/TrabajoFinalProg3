@@ -42,7 +42,9 @@ class PelisHome extends Component {
           )}
         </div>
          <Link to= {'/Peliculas'}>
+         <div className="estructura">
           <button className="VerTodas">Ver todas</button>
+          </div>
         </Link>
       </section>
     );
