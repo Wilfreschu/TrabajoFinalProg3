@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PeliHome from "../PeliHome/PeliHome";
 import "../Css/Cards.css"
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import MovieCard from "../MovieCard/MovieCard";
 class PelisHome extends Component {
   constructor() {
     super();
@@ -31,7 +31,7 @@ class PelisHome extends Component {
           ) : (
             this.state.datos.map((item, idx) => (
               idx < 4 ?   
-                <PeliHome 
+                <MovieCard 
                   key={item.id + idx} 
                   Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`} 
                   Nombre={item.original_title} 

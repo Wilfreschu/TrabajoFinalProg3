@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import SerieOnAir from "../SerieOnAir/SerieOnAir";
-import "./SeriesOnAir.css"
 import FiltroHome from "../Filtro/Filtro";
+import SerieCard from "../SerieCard/SerieCard"
 class SeriesOnAir extends Component {
   constructor() {
     super();
@@ -59,12 +58,12 @@ class SeriesOnAir extends Component {
           <h3>Cargando...</h3>
         ) : (
           this.state.datosFiltradosS.map((item, idx) => (
-            <SerieOnAir
+            <SerieCard
               key={item.id + idx}
-              Simagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
-              Snombre={item.original_name}
-              Sid={item.id}
-              SDescripcion={item.overview} 
+              Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+              Nombre={item.original_name}
+              id={item.id}
+              Descripcion={item.overview} 
             />
           ))
         )}

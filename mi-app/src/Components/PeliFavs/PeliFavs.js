@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./SerieHome.css"
 
-class SerieHome extends Component {  
+class PeliHome extends Component {  
   constructor(props){
     super(props)
     this.state = {
@@ -13,22 +12,22 @@ class SerieHome extends Component {
   }
 
   componentDidMount(){
-    let favs = localStorage.getItem("favoritos_series");
+    let favs = localStorage.getItem("favoritos_pelis");
     favs = favs ? JSON.parse(favs) : [];
     let esFav = favs.includes(this.props.id);
     this.setState({ esFavorito: esFav });
   }
 
   cambioBoton() {
-  this.setState({
-    verMas: this.state.verMas ? false : true,
-    textoBoton: this.state.verMas ? "ver mas" : "ver menos"
-  });
+    this.setState({
+      verMas: this.state.verMas ? false : true,
+      textoBoton: this.state.verMas ? "ver mas" : "ver menos"
+    });
 }
 
 
   manejarFavorito() {
-    let favs = localStorage.getItem("favoritos_series");
+    let favs = localStorage.getItem("favoritos_pelis");
     favs = favs ? JSON.parse(favs) : [];
 
     let nuevosFavs = [];
@@ -46,15 +45,15 @@ class SerieHome extends Component {
       nuevosFavs.push(this.props.id);
     }
 
-    localStorage.setItem("favoritos_series", JSON.stringify(nuevosFavs));
-    this.setState({ esFavorito: !this.state.esFavorito });
+     localStorage.setItem("favoritos_pelis", JSON.stringify(nuevosFavs));
+   this.setState({ esFavorito: !this.state.esFavorito }, () => this.props.actualizarPelis(this.props.id));
   }
 
   render(){
     return(
       <div className="peli-card">
         <img src={this.props.Imagen} alt="" />
-        <p className="Nombre">{this.props.Nombre}</p>
+        <p>{this.props.Nombre}</p>
         <button onClick={() => this.cambioBoton()}>{this.state.textoBoton}</button>
         {this.state.verMas === false ? null : <p>Descripcion {this.props.Descripcion}</p>}
 
@@ -62,7 +61,7 @@ class SerieHome extends Component {
           {this.state.esFavorito ? "Quitar de Favoritos" : "Agregar a Favoritos"}
         </button>
 
-        <Link to={`/detalleSerie/${this.props.id}`}>
+        <Link to={`/detallePeli/${this.props.id}`}>
           <button>Ir a detalle</button>
         </Link>
       </div>
@@ -70,4 +69,4 @@ class SerieHome extends Component {
   }
 }
 
-export default SerieHome;
+export default PeliHome;

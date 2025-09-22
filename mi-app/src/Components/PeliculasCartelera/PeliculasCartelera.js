@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./PeliculasCartelera.css"
-import PeliculaCartelera from "../PeliculaCartelera/PeliculaCartelera";
 import FiltroHome from "../Filtro/Filtro";
+import MovieCard from "../MovieCard/MovieCard";
 class PeliculasCartelera extends Component {
   constructor() {
     super();
@@ -63,12 +63,12 @@ class PeliculasCartelera extends Component {
         ) : (
           
           this.state.datosFiltrados.map((item, idx) => (
-            <PeliculaCartelera
+            <MovieCard
               key={item.id + idx}
-              Pimagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
-              Pnombre={item.original_title}
-              Pid={item.id}
-              PDescripcion={item.overview} 
+              Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+              Nombre={item.original_title}
+              id={item.id}
+              Descripcion={item.overview} 
             />
           ))
         )}

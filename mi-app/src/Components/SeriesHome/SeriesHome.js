@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import SerieHome from "../SerieHome/SerieHome";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import SerieCard from "../SerieCard/SerieCard"
 
 class SeriesHome extends Component {
   constructor (){
@@ -29,7 +29,7 @@ render(){
         ) : (
           this.state.datos.map((item, idx) => (
             idx < 4 ?   
-              <SerieHome 
+              <SerieCard 
                 key={item.id + idx} 
                 Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`} 
                 Nombre={item.original_name} 

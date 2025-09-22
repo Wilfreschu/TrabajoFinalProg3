@@ -63,6 +63,16 @@
   margin-bottom: 30px;
   font-size: 14px;
 }
+.nextSeries{
+     padding: 12px 27px;      
+  font-size: 20px;         
+  border: none;
+  border-radius: 4px;
+  background-color: #02106e; 
+  color: white;
+  margin-bottom: 30px;
+  margin-left: 5px;
+}
 @media(max-width: 480px){
   .peli-card{
     width: 70%;
