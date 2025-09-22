@@ -9,6 +9,8 @@ import Series from './Screens/Series/Series';
 import SearchResults from './Components/SearchResults/SearchResults';
 import Favoritos from './Screens/Favoritos/Favoritos';
 import Error from './Screens/Error404/Error404';
+import PeliculasTR from './Screens/PeliculasTR/PeliculasTR';
+import SeriesRated from './Screens/SeriesRated/SeriesRated';
 function App() {
   return (
     <Router>
@@ -20,6 +22,8 @@ function App() {
       <Route path= "/Peliculas" component = {Peliculas}/>
       <Route path= "/Series" component = {Series}/>
       <Route path="/resultados/:type/:nombre" component = {SearchResults} />
+      <Route path="/PeliculasTR" component={PeliculasTR}/>
+      <Route path ="/SeriesTR" component={SeriesRated}/> 
       <Route path= "" component = {Error} />
       </Switch>
     </Router>

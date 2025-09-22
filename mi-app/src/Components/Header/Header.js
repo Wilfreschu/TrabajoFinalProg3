@@ -8,6 +8,8 @@ function Header(){
         {ruta:"/favoritos", name: "Favorites"},
         {ruta:"/Series", name: "Series al aire"},
         {ruta:"/Peliculas", name: "Peliculas en cartelera"},
+        {ruta: "/PeliculasTR", name: "Peliculas con mejor rating"},
+        {ruta: "SeriesTR", name: "Series con mejor rating"}
     ];
     return(
          <nav>

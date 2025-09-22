@@ -82,7 +82,7 @@ class Favoritos extends Component {
           <h2 className="titulo-grupo" >Series Favoritas</h2>
           <section className="card-container">
             {this.state.series.length === 0 ? (
-              <p className="notFound">No hay series favoritas.</p>
+              <p className="notFoundS">No hay series favoritas.</p>
             ) : this.state.series.map(ser => (
               <div key={ser.id} className="peli-card">
               

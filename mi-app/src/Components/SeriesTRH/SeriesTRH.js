@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import SerieHome from "../SerieHome/SerieHome";
+import SerieTRH from "../SerieTRH/SerieTRH";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-class SeriesHome extends Component {
+class SeriesTRH extends Component {
   constructor (){
     super()
     this.state= {
@@ -11,7 +11,7 @@ class SeriesHome extends Component {
   }
 
   componentDidMount(){
-    fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR&page=1`)
+    fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR&page=1`)
       .then(response => response.json())
       .then(data => this.setState({
         datos: data.results,
@@ -22,14 +22,14 @@ class SeriesHome extends Component {
 render(){
   return (
     <section>
-      <h2 className="titulo-grupo">Series al aire</h2>
+      <h2 className="titulo-grupo">Series con mejor rating</h2>
       <div className="card-container">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
           this.state.datos.map((item, idx) => (
             idx < 4 ?   
-              <SerieHome 
+              <SerieTRH 
                 key={item.id + idx} 
                 Imagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`} 
                 Nombre={item.original_name} 
@@ -39,11 +39,11 @@ render(){
           ))
         )}
       </div>
-      <Link to={'/Series'}>
+      <Link to={'/SeriesTR'}>
       <button className="VerTodas">Ver todas</button>
       </Link>
     </section>
   );
 }
 }
-export default SeriesHome;
+export default SeriesTRH;

@@ -5,6 +5,8 @@ import Footer from "../../Components/Footer/Footer";
 import SeriesHome from "../../Components/SeriesHome/SeriesHome";
 import PelisHome from "../../Components/PelisHome/PelisHome";
 import SearchForm from "../../Components/SearchForm/SearchForm";
+import MoviesTRH from "../../Components/MoviesTRH/MoviesTRH";
+import SeriesTRH from "../../Components/SeriesTRH/SeriesTRH";
 function Home() {
   return (
     <React.Fragment>
@@ -12,8 +14,9 @@ function Home() {
      <Header/>
 <section>
   <PelisHome/>
+  <MoviesTRH/>
   <SeriesHome/>
-  
+  <SeriesTRH/>
 </section>
       <Footer/>
     </div>
