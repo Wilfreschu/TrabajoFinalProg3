@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "./PeliculasCartelera.css"
 import PeliculaCartelera from "../PeliculaCartelera/PeliculaCartelera";
+import FiltroHome from "../Filtro/Filtro";
 class PeliculasCartelera extends Component {
   constructor() {
     super();
     this.state = {
       datos: [],
       page: 1,     
-      cargar: false  
+      cargar: false,
+      datosFiltrados: []  
     };
   }
 
@@ -15,7 +17,8 @@ class PeliculasCartelera extends Component {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR&page=${this.state.page}`)
       .then(response => response.json())
       .then(data => this.setState({
-        datos: data.results
+        datos: data.results,
+        datosFiltrados: data.results
       }))
       .catch(error => console.log(error));
   }
@@ -27,25 +30,39 @@ class PeliculasCartelera extends Component {
         .then(response => response.json())
         .then(data => this.setState({
           datos: this.state.datos.concat(data.results),
-          cargar: false
+          cargar: false,
+          datosFiltrados: this.state.datosFiltrados.concat(data.results),
         }))
         .catch(error => console.log(error));
     }
   }
+    filtrarPersonajes(textoAFiltrar) {
+    let nuevoArray = this.state.datos.filter((item) =>
+      item.original_title.toLowerCase().includes(textoAFiltrar.toLowerCase())
+
+    );
+    this.setState({
+      datosFiltrados: nuevoArray
+    })
+  }
+
 
   cargarMas() {
     this.setState({ page: this.state.page + 1, cargar: true });
   }
 
   render() {
+
     return (
       <div>
+        <FiltroHome filtrar={(texto) => this.filtrarPersonajes(texto)} />
       <section className="card-container">
+        
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
           
-          this.state.datos.map((item, idx) => (
+          this.state.datosFiltrados.map((item, idx) => (
             <PeliculaCartelera
               key={item.id + idx}
               Pimagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}

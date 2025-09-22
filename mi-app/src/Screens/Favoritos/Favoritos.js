@@ -60,36 +60,41 @@ class Favoritos extends Component {
     return (
       <React.Fragment>
         <Header/>  
-
-        <div className="favoritos-container">
-          <h2>Películas Favoritas</h2>
-          <div className="favoritos-grid">
+        <h2 className="titulo-grupo" >Películas Favoritas</h2>
+        <section className="card-container">
+        
             {this.state.pelis.length === 0 ? (
-              <p>No hay películas favoritas.</p>
+              <p className="notFound">No hay películas favoritas.</p>
             ) : this.state.pelis.map(peli => (
-              <div key={peli.id} className="favorito-card">
+              <div key={peli.id} className="peli-card">
                 <Link to={"/detallePeli/" + peli.id}>
                   <img src={"https://image.tmdb.org/t/p/w200" + peli.poster_path} alt={peli.title}/>
                   <p>{peli.title}</p>
+                  <button>ir al detalle</button>
                 </Link>
               </div>
             ))}
-          </div>
+    
+         </section>
 
-          <h2>Series Favoritas</h2>
-          <div className="favoritos-grid">
+
+
+          <h2 className="titulo-grupo" >Series Favoritas</h2>
+          <section className="card-container">
             {this.state.series.length === 0 ? (
-              <p>No hay series favoritas.</p>
+              <p className="notFound">No hay series favoritas.</p>
             ) : this.state.series.map(ser => (
-              <div key={ser.id} className="favorito-card">
-                <Link to={"/detalleSerie/" + ser.id}>
+              <div key={ser.id} className="peli-card">
+              
                   <img src={"https://image.tmdb.org/t/p/w200" + ser.poster_path} alt={ser.name}/>
                   <p>{ser.name}</p>
+                  <Link to={"/detalleSerie/" + ser.id}>
+                  <button>ir al detalle</button>
                 </Link>
               </div>
             ))}
-          </div>
-        </div>
+          </section>
+        
 
         <Footer/>
       </React.Fragment>

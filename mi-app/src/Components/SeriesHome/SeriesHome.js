@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PeliHome from "../SerieHome/SerieHome";
 import SerieHome from "../SerieHome/SerieHome";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class SeriesHome extends Component {
   constructor (){
@@ -19,12 +20,7 @@ class SeriesHome extends Component {
       .catch(error => console.log(error));
   }
 
-filtrarPersonajes(textoAFiltrar) {
-    return this.state.datos.filter((item) =>
-      item.original_name.toLowerCase().includes(textoAFiltrar.toLowerCase())
-  )}
 render(){
-  const personajesFiltrados = this.filtrarPersonajes(this.props.filtro);
   return (
     <section>
       <h2 className="titulo-grupo">Series al aire</h2>
@@ -32,7 +28,7 @@ render(){
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
-          personajesFiltrados.map((item, idx) => (
+          this.state.datos.map((item, idx) => (
             idx < 4 ?   
               <SerieHome 
                 key={item.id + idx} 
@@ -44,6 +40,9 @@ render(){
           ))
         )}
       </div>
+      <Link to={'/Series'}>
+      <button className="VerTodas">Ver todas</button>
+      </Link>
     </section>
   );
 }

@@ -27,7 +27,7 @@ render() {
     <form onSubmit={(e)=> this.ejecutarBusqueda(e)}>
         <input
             type="text"
-            placeholder="Buscar pelicula..."
+            placeholder="Buscar pelicula/serie..."
             value={this.state.search}
             onChange={(event)=> this.controlarCambios(event)}
         />

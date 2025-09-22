@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import SerieOnAir from "../SerieOnAir/SerieOnAir";
 import "./SeriesOnAir.css"
+import FiltroHome from "../Filtro/Filtro";
 class SeriesOnAir extends Component {
   constructor() {
     super();
     this.state = {
       datos: [],
       page: 1,     
-      cargar: false  
+      cargar: false , 
+      datosFiltradosS: [] 
     };
   }
 
@@ -15,7 +17,8 @@ class SeriesOnAir extends Component {
     fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR&page=${this.state.page}`)
       .then(response => response.json())
       .then(data => this.setState({
-        datos: data.results
+        datos: data.results,
+        datosFiltradosS: data.results
       }))
       .catch(error => console.log(error));
   }
@@ -27,10 +30,20 @@ class SeriesOnAir extends Component {
         .then(response => response.json())
         .then(data => this.setState({
           datos: this.state.datos.concat(data.results),
-          cargar: false
+          cargar: false,
+          datosFiltradosS: this.state.datosFiltradosS.concat(data.results),
         }))
         .catch(error => console.log(error));
     }
+  }
+ filtrarPersonajes(textoAFiltrar) {
+    let nuevoArray = this.state.datos.filter((item) =>
+      item.original_name.toLowerCase().includes(textoAFiltrar.toLowerCase())
+
+    );
+    this.setState({
+      datosFiltradosS: nuevoArray
+    })
   }
 
   cargarMas() {
@@ -39,11 +52,13 @@ class SeriesOnAir extends Component {
 
   render() {
     return (
+      <div>
+        <FiltroHome filtrar={(texto) => this.filtrarPersonajes(texto)} />
       <section className="card-container">
         {this.state.datos.length === 0 ? (
           <h3>Cargando...</h3>
         ) : (
-          this.state.datos.map((item, idx) => (
+          this.state.datosFiltradosS.map((item, idx) => (
             <SerieOnAir
               key={item.id + idx}
               Simagen={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
@@ -53,8 +68,10 @@ class SeriesOnAir extends Component {
             />
           ))
         )}
-        <button className="nextSeries"onClick={() => this.cargarMas()}>Next</button>
-      </section>
+        </section>
+        <button className="next"onClick={() => this.cargarMas()}>Next</button>
+    
+        </div>
     );
   }
 }

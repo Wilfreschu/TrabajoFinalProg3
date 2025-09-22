@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PeliHome from "../PeliHome/PeliHome";
 import "../Css/Cards.css"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class PelisHome extends Component {
   constructor() {
     super();
@@ -17,15 +18,9 @@ class PelisHome extends Component {
       }))
       .catch(error => console.log(error));
   }
-  filtrarPersonajes(textoAFiltrar) {
-    return this.state.datos.filter((item) =>
-      item.original_title.toLowerCase().includes(textoAFiltrar.toLowerCase())
-    );
-  }
 
 
   render() {
-    const personajesFiltrados = this.filtrarPersonajes(this.props.filtro);
 
     return (
       <section>
@@ -34,7 +29,7 @@ class PelisHome extends Component {
           {this.state.datos.length === 0 ? (
             <h3>Cargando...</h3>
           ) : (
-            personajesFiltrados.map((item, idx) => (
+            this.state.datos.map((item, idx) => (
               idx < 4 ?   
                 <PeliHome 
                   key={item.id + idx} 
@@ -46,6 +41,9 @@ class PelisHome extends Component {
             ))
           )}
         </div>
+         <Link to= {'/Peliculas'}>
+          <button className="VerTodas">Ver todas</button>
+        </Link>
       </section>
     );
   }

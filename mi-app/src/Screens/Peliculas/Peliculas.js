@@ -3,6 +3,7 @@ import SeriesOnAir from "../../Components/SeriesOnAir/SeriesOnAir";
 import PeliculasCartelera from "../../Components/PeliculasCartelera/PeliculasCartelera";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import FiltroHome from "../../Components/Filtro/Filtro";
 
 
 class Peliculas extends Component {
