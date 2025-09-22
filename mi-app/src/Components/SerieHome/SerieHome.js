@@ -19,19 +19,13 @@ class SerieHome extends Component {
     this.setState({ esFavorito: esFav });
   }
 
-  cambioBoton(){
-    if(this.state.verMas === false){
-      this.setState({
-        verMas: true,
-        textoBoton: "ver menos",
-      })
-    } else {
-      this.setState({
-        verMas: false,
-        textoBoton: "ver mas"
-      })
-    }
-  }
+  cambioBoton() {
+  this.setState({
+    verMas: this.state.verMas ? false : true,
+    textoBoton: this.state.verMas ? "ver mas" : "ver menos"
+  });
+}
+
 
   manejarFavorito() {
     let favs = localStorage.getItem("favoritos_series");

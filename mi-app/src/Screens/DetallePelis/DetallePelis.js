@@ -84,13 +84,13 @@ class DetallePelis extends Component {
               <p><strong>Sinópsis:</strong> {info.overview ? info.overview : "No disponible"}</p>
               <p><strong>Géneros:</strong></p>
               <ul>
-                {info.genres && info.genres.length > 0 ? (function(){
-                  let lista = [];
-                  for(let i = 0; i < info.genres.length; i++){
-                    lista[lista.length] = <li key={info.genres[i].id}>{info.genres[i].name}</li>;
-                  }
-                  return lista;
-                })() : <li>No hay géneros disponibles</li>}
+                      {info.genres?.length > 0 ? (
+                        info.genres.map((genero) => (
+                          <li key={genero.id}>{genero.name}</li>
+                        ))
+                      ) : (
+                        <li>No hay géneros disponibles</li>
+                      )}
               </ul>
               <button onClick={() => this.manejarFavorito()}>
                 {this.state.esFavorito ? "Quitar de Favoritos" : "Agregar a Favoritos"}

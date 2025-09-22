@@ -38,9 +38,9 @@ render() {
     <React.Fragment>
       <Header/>
       <h2 className="titulo-grupo">Resultados de búsqueda</h2>
-      <section className="card-container">
+     <section className="card-container">
         {this.state.resultados.length === 0 ? (
-          <h3>Cargando...</h3>
+          <h3 className="error404">No hay resultados con ese nombre</h3>
         ) : (
           this.state.resultados.map((item, idx) => (
             type === "movie" ? (
