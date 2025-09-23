@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./PeliculasCartelera.css"
 import FiltroHome from "../Filtro/Filtro";
 import MovieCard from "../MovieCard/MovieCard";
 class PeliculasCartelera extends Component {
