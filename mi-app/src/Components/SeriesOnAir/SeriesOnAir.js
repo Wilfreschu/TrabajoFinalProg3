@@ -7,7 +7,6 @@ class SeriesOnAir extends Component {
     this.state = {
       datos: [],
       page: 1,     
-      cargar: false , 
       datosFiltradosS: [] 
     };
   }
@@ -29,7 +28,6 @@ class SeriesOnAir extends Component {
         .then(response => response.json())
         .then(data => this.setState({
           datos: this.state.datos.concat(data.results),
-          cargar: false,
           datosFiltradosS: this.state.datosFiltradosS.concat(data.results),
         }))
         .catch(error => console.log(error));
@@ -46,7 +44,7 @@ class SeriesOnAir extends Component {
   }
 
   cargarMas() {
-    this.setState({ page: this.state.page + 1, cargar: true });
+    this.setState({ page: this.state.page + 1});
   }
 
   render() {

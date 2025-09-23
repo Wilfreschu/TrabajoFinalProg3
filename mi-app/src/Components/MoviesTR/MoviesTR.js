@@ -7,7 +7,6 @@ class MoviesTR extends Component {
     this.state = {
       datos: [],
       page: 1,     
-      cargar: false,
       datosFiltrados: []  
     };
   }
@@ -29,7 +28,6 @@ class MoviesTR extends Component {
         .then(response => response.json())
         .then(data => this.setState({
           datos: this.state.datos.concat(data.results),
-          cargar: false,
           datosFiltrados: this.state.datosFiltrados.concat(data.results),
         }))
         .catch(error => console.log(error));
@@ -47,7 +45,7 @@ class MoviesTR extends Component {
 
 
   cargarMas() {
-    this.setState({ page: this.state.page + 1, cargar: true });
+    this.setState({ page: this.state.page + 1 });
   }
 
   render() {
