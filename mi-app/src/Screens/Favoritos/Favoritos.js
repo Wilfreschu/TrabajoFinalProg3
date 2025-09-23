@@ -24,12 +24,10 @@ componentDidMount(){
     favs = favs ? JSON.parse(favs) : [];
     let esFav = favs.includes(this.props.id);
 
-    let favsPelis = JSON.parse(favsPelisString || "[]");
+    let favsPelis = JSON.parse(favsPelisString);
     let pelisArray = [];
 
-    favsPelis
-      .filter(id => id != null) 
-      .map(id => {
+    favsPelis.filter(id => id != null).map(id => {
         fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR")
           .then(res => res.json())
           .then(data => {
@@ -46,12 +44,10 @@ componentDidMount(){
       });
 
     let favsSeriesString = localStorage.getItem("favoritos_series");
-    let favsSeries = JSON.parse(favsSeriesString || "[]");
+    let favsSeries = JSON.parse(favsSeriesString);
     let seriesArray = [];
 
-    favsSeries
-      .filter(id => id != null) 
-      .map(id => {
+    favsSeries.filter(id => id != null).map(id => {
         fetch("https://api.themoviedb.org/3/tv/" + id + "?api_key=d214a519ce9ac22567ec2cd3ea1a91f0&language=es-AR")
           .then(res => res.json())
           .then(data => {
